@@ -16,7 +16,8 @@ use futures::{
     SinkExt, Stream,
 };
 use tokio::net::TcpStream;
-use tokio_native_tls::TlsStream;
+//use tokio_native_tls::TlsStream;
+use tokio_rustls::client::TlsStream;
 
 use crate::error::{Error, Kind, WsCloseError};
 use crate::param::Interval;

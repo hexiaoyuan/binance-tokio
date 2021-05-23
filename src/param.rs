@@ -131,7 +131,7 @@ impl<'a> Parameters<'a> {
         self.timestamp = Some(Utc::now().timestamp_millis());
 
         let message = serde_urlencoded::to_string(&self)?;
-        let mut mac = HmacSha256::new_varkey(secret.into().as_bytes())?;
+        let mut mac = HmacSha256::new_from_slice(secret.into().as_bytes())?;
         mac.update(message.as_bytes());
         let signature = mac.finalize();
 
