@@ -2,7 +2,6 @@
 authors = ["kgeronim <kevin.geronimo@outlook.com>"]
 categories = ["api-bindings", "cryptography::cryptocurrencies"]
 description = "Unofficial async client for Binance."
-documentation = "https://docs.rs/tokio-binance"
 edition = "2018"
 keywords = ["binance", "crypto", "exchange", "trade"]
 license = "MIT/Apache-2.0"

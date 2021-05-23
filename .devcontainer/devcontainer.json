@@ -2,22 +2,21 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/rust
 {
 	"name": "Rust",
-	"dockerFile": "Dockerfile",
-	"runArgs": [
-		// Uncomment the next line to use a non-root user. On Linux, this will prevent
-		// new files getting created as root, but you may need to update the USER_UID
-		// and USER_GID in .devcontainer/Dockerfile to match your user if not 1000.
-		// "-u", "vscode",
+	// "build": { "dockerfile": "Dockerfile" },
+	"image": "mcr.microsoft.com/vscode/devcontainers/rust:1",
 
-		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"
-	],
+	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
 
 	// Use 'settings' to set *default* container specific settings.json values on container create. 
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash",
+		// "terminal.integrated.shell.linux": "/bin/bash",
 		"lldb.adapterType": "native",
-		"lldb.executable": "/usr/bin/lldb"
+		"lldb.executable": "/usr/bin/lldb",
+		// VS Code don't watch files under ./target
+		"files.watcherExclude": {
+			"**/target/**": true
+		}
 	},
 
 	// Uncomment the next line if you want to publish any ports.
@@ -31,7 +30,18 @@
 		"rust-lang.rust",
 		"bungcip.better-toml",
 		"vadimcn.vscode-lldb",
+		"mutantdino.resourcemonitor",
 		"serayuzgur.crates",
 		"zhuangtongfa.material-theme"
-	]
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "rustc --version",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+
 }

@@ -14,7 +14,7 @@ FROM rust:1
 #ARG USER_GID=$USER_UID
 
 # macos user
-ARG USERNAME=pete
+ARG USERNAME=vscode
 ARG USER_UID=501
 ARG USER_GID=20
 
@@ -33,11 +33,11 @@ RUN apt-get update \
     && apt-get install -y lldb \
     #
     # Install Rust components
-    && rustup update \
-    && rustup component add rls rust-analysis rust-src rustfmt clippy \
+    #&& rustup update \
+    #&& rustup component add rls rust-analysis rust-src rustfmt clippy \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
-    && groupadd --gid $USER_GID $USERNAME \
+    #&& groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     # [Optional] Add sudo support for the non-root user
     && apt-get install -y sudo \
