@@ -4,7 +4,7 @@ mod market;
 mod user_data;
 mod withdraw;
 
-/// https://api.binance.us
+/// https://api.binance.com https://api1.binance.com https://api2.binance.com https://api3.binance.com
 pub const BINANCE_US_URL: &'static str = "https://api.binance.us";
 
 pub use self::account::AccountClient;

@@ -29,6 +29,7 @@ impl GeneralClient {
         Ok(Self {
             url: url.into().parse::<Url>()?,
             client: Client::new()
+            // client: reqwest::Client::builder().proxy(reqwest::Proxy::all("socks5://127.0.0.1:1081")?).build()?
         })
     }
     /// Test connectivity to the Rest API.

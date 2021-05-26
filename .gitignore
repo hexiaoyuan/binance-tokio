@@ -2,3 +2,4 @@
 **/*.rs.bk
 /src/main.rs
 /tmp
+.env*
