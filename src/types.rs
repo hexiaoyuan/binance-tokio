@@ -32,6 +32,7 @@ pub trait Page {}
 pub struct PingParams;
 pub struct TimeParams;
 pub struct ExchangeInfoParams;
+impl Symbol for ExchangeInfoParams {}
 pub struct AveragePriceParams;
 
 pub struct OrderBookParams;

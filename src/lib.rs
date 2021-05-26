@@ -57,6 +57,8 @@
 //! }
 //! ```
 
+pub mod model;
+
 pub mod builder;
 mod client;
 pub mod error;
